@@ -17,15 +17,15 @@ import proto  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package='google.cloud.bigquery.migration.v2alpha',
+    package="google.cloud.bigquery.migration.v2alpha",
     manifest={
-        'TranslationFileMapping',
-        'TranslationTaskDetails',
-        'Filter',
-        'IdentifierSettings',
-        'TeradataOptions',
-        'BteqOptions',
-        'DatasetReference',
+        "TranslationFileMapping",
+        "TranslationTaskDetails",
+        "Filter",
+        "IdentifierSettings",
+        "TeradataOptions",
+        "BteqOptions",
+        "DatasetReference",
     },
 )
 
@@ -43,14 +43,8 @@ class TranslationFileMapping(proto.Message):
             corresponding input file to.
     """
 
-    input_path = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    output_path = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    input_path = proto.Field(proto.STRING, number=1,)
+    output_path = proto.Field(proto.STRING, number=2,)
 
 
 class TranslationTaskDetails(proto.Message):
@@ -113,6 +107,7 @@ class TranslationTaskDetails(proto.Message):
             the table exists and the schema is different, we
             will throw an error.
     """
+
     class FileEncoding(proto.Enum):
         r"""The file encoding types."""
         FILE_ENCODING_UNSPECIFIED = 0
@@ -135,59 +130,26 @@ class TranslationTaskDetails(proto.Message):
         TIMESTAMP = 7
 
     teradata_options = proto.Field(
-        proto.MESSAGE,
-        number=10,
-        oneof='language_options',
-        message='TeradataOptions',
+        proto.MESSAGE, number=10, oneof="language_options", message="TeradataOptions",
     )
     bteq_options = proto.Field(
-        proto.MESSAGE,
-        number=11,
-        oneof='language_options',
-        message='BteqOptions',
+        proto.MESSAGE, number=11, oneof="language_options", message="BteqOptions",
     )
-    input_path = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    output_path = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    input_path = proto.Field(proto.STRING, number=1,)
+    output_path = proto.Field(proto.STRING, number=2,)
     file_paths = proto.RepeatedField(
-        proto.MESSAGE,
-        number=12,
-        message='TranslationFileMapping',
+        proto.MESSAGE, number=12, message="TranslationFileMapping",
     )
-    schema_path = proto.Field(
-        proto.STRING,
-        number=3,
-    )
-    file_encoding = proto.Field(
-        proto.ENUM,
-        number=4,
-        enum=FileEncoding,
-    )
+    schema_path = proto.Field(proto.STRING, number=3,)
+    file_encoding = proto.Field(proto.ENUM, number=4, enum=FileEncoding,)
     identifier_settings = proto.Field(
-        proto.MESSAGE,
-        number=5,
-        message='IdentifierSettings',
+        proto.MESSAGE, number=5, message="IdentifierSettings",
     )
     special_token_map = proto.MapField(
-        proto.STRING,
-        proto.ENUM,
-        number=6,
-        enum=TokenType,
+        proto.STRING, proto.ENUM, number=6, enum=TokenType,
     )
-    filter = proto.Field(
-        proto.MESSAGE,
-        number=7,
-        message='Filter',
-    )
-    translation_exception_table = proto.Field(
-        proto.STRING,
-        number=13,
-    )
+    filter = proto.Field(proto.MESSAGE, number=7, message="Filter",)
+    translation_exception_table = proto.Field(proto.STRING, number=13,)
 
 
 class Filter(proto.Message):
@@ -199,10 +161,7 @@ class Filter(proto.Message):
             processing for input files.
     """
 
-    input_file_exclusion_prefixes = proto.RepeatedField(
-        proto.STRING,
-        number=1,
-    )
+    input_file_exclusion_prefixes = proto.RepeatedField(proto.STRING, number=1,)
 
 
 class IdentifierSettings(proto.Message):
@@ -216,6 +175,7 @@ class IdentifierSettings(proto.Message):
             Specifies the rewrite mode for SQL
             identifiers.
     """
+
     class IdentifierCase(proto.Enum):
         r"""The identifier case type."""
         IDENTIFIER_CASE_UNSPECIFIED = 0
@@ -229,15 +189,9 @@ class IdentifierSettings(proto.Message):
         NONE = 1
         REWRITE_ALL = 2
 
-    output_identifier_case = proto.Field(
-        proto.ENUM,
-        number=1,
-        enum=IdentifierCase,
-    )
+    output_identifier_case = proto.Field(proto.ENUM, number=1, enum=IdentifierCase,)
     identifier_rewrite_mode = proto.Field(
-        proto.ENUM,
-        number=2,
-        enum=IdentifierRewriteMode,
+        proto.ENUM, number=2, enum=IdentifierRewriteMode,
     )
 
 
@@ -265,20 +219,9 @@ class BteqOptions(proto.Message):
             translation (the value).
     """
 
-    project_dataset = proto.Field(
-        proto.MESSAGE,
-        number=1,
-        message='DatasetReference',
-    )
-    default_path_uri = proto.Field(
-        proto.STRING,
-        number=2,
-    )
-    file_replacement_map = proto.MapField(
-        proto.STRING,
-        proto.STRING,
-        number=3,
-    )
+    project_dataset = proto.Field(proto.MESSAGE, number=1, message="DatasetReference",)
+    default_path_uri = proto.Field(proto.STRING, number=2,)
+    file_replacement_map = proto.MapField(proto.STRING, proto.STRING, number=3,)
 
 
 class DatasetReference(proto.Message):
@@ -294,14 +237,8 @@ class DatasetReference(proto.Message):
             dataset.
     """
 
-    dataset_id = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    project_id = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    dataset_id = proto.Field(proto.STRING, number=1,)
+    project_id = proto.Field(proto.STRING, number=2,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))
