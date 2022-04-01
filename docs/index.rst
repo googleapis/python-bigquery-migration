@@ -2,6 +2,9 @@
 
 .. include:: multiprocessing.rst
 
+This package includes clients for multiple versions of Google BigQuery Migration.
+By default, you will get version ``bigquery_migration_v2alpha``.
+
 
 API Reference
 -------------
@@ -10,6 +13,14 @@ API Reference
 
     bigquery_migration_v2alpha/services
     bigquery_migration_v2alpha/types
+
+API Reference
+-------------
+.. toctree::
+    :maxdepth: 2
+
+    bigquery_migration_v2/services
+    bigquery_migration_v2/types
 
 
 Changelog

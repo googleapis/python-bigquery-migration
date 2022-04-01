@@ -24,15 +24,15 @@
 
 
 # [START bigquerymigration_v2_generated_MigrationService_StartMigrationWorkflow_async]
-from google.cloud.bigquery import migration_v2
+from google.cloud import bigquery_migration_v2
 
 
 async def sample_start_migration_workflow():
     # Create a client
-    client = migration_v2.MigrationServiceAsyncClient()
+    client = bigquery_migration_v2.MigrationServiceAsyncClient()
 
     # Initialize request argument(s)
-    request = migration_v2.StartMigrationWorkflowRequest(
+    request = bigquery_migration_v2.StartMigrationWorkflowRequest(
         name="name_value",
     )
 

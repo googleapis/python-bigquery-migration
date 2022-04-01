@@ -24,15 +24,15 @@
 
 
 # [START bigquerymigration_v2_generated_MigrationService_GetMigrationSubtask_sync]
-from google.cloud.bigquery import migration_v2
+from google.cloud import bigquery_migration_v2
 
 
 def sample_get_migration_subtask():
     # Create a client
-    client = migration_v2.MigrationServiceClient()
+    client = bigquery_migration_v2.MigrationServiceClient()
 
     # Initialize request argument(s)
-    request = migration_v2.GetMigrationSubtaskRequest(
+    request = bigquery_migration_v2.GetMigrationSubtaskRequest(
         name="name_value",
     )
 
