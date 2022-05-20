@@ -54,7 +54,7 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
 
     workflow.tasks["translation-task"] = migration_task
 
-    # # Prepare the API request to create a migration workflow.
+    # Prepare the API request to create a migration workflow.
     request = bigquery_migration_v2.CreateMigrationWorkflowRequest(
         parent=parent, migration_workflow=workflow,
     )
