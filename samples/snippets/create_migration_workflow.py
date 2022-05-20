@@ -18,7 +18,7 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
 
     from google.cloud import bigquery_migration_v2
 
-    parent = "projects/%s/locations/us" % project_id
+    parent = f"projects/{project_id}/locations/us"
 
     # Construct a BigQuery Migration client object.
     client = bigquery_migration_v2.MigrationServiceClient()
