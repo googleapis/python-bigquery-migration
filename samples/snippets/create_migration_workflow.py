@@ -1,3 +1,4 @@
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -66,6 +67,4 @@ def create_migration_workflow(
     print(response.display_name)
     print("Current state:")
     print(response.State(response.state))
-
-
 # [END bigquery_migration_create_workflow]
