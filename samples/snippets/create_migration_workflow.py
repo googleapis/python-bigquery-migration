@@ -13,9 +13,7 @@
 # limitations under the License.
 
 # [START bigquery_migration_create_workflow]
-def create_migration_workflow(
-    gcs_input_path: str, gcs_output_path: str, project_id: str
-) -> None:
+def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
     """Creates a migration workflow of a Batch SQL Translation and prints the response.
     """
 
@@ -44,7 +42,7 @@ def create_migration_workflow(
         target_dialect=target_dialect,
     )
 
-    # # Prepare the task.
+    # Prepare the task.
     migration_task = bigquery_migration_v2.MigrationTask(
         type_="Translation_Teradata2BQ", translation_config_details=translation_config
     )
