@@ -29,7 +29,7 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
         mode=bigquery_migration_v2.TeradataDialect.Mode.SQL
     )
 
-    # Set the target dialect to Bigquery dialect.
+    # Set the target dialect to BigQuery dialect.
     target_dialect = bigquery_migration_v2.Dialect()
     target_dialect.bigquery_dialect = bigquery_migration_v2.BigQueryDialect()
 
