@@ -14,8 +14,7 @@
 
 # [START bigquery_migration_create_workflow]
 def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
-    """Creates a migration workflow of a Batch SQL Translation and prints the response.
-    """
+    """Creates a migration workflow of a Batch SQL Translation and prints the response."""
 
     from google.cloud import bigquery_migration_v2
 
@@ -56,7 +55,8 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
 
     # Prepare the API request to create a migration workflow.
     request = bigquery_migration_v2.CreateMigrationWorkflowRequest(
-        parent=parent, migration_workflow=workflow,
+        parent=parent,
+        migration_workflow=workflow,
     )
 
     response = client.create_migration_workflow(request=request)
@@ -65,4 +65,6 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
     print(response.display_name)
     print("Current state:")
     print(response.State(response.state))
+
+
 # [END bigquery_migration_create_workflow]
