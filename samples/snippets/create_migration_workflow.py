@@ -13,7 +13,9 @@
 # limitations under the License.
 
 # [START bigquery_migration_create_workflow]
-def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
+def create_migration_workflow(
+    gcs_input_path: str, gcs_output_path: str, project_id: str
+) -> None:
     """Creates a migration workflow of a Batch SQL Translation and prints the response."""
 
     from google.cloud import bigquery_migration_v2
@@ -51,7 +53,7 @@ def create_migration_workflow(gcs_input_path, gcs_output_path, project_id):
         display_name="demo-workflow-python-example-Teradata2BQ"
     )
 
-    workflow.tasks["translation-task"] = migration_task
+    workflow.tasks["translation-task"] = migration_task  # type: ignore
 
     # Prepare the API request to create a migration workflow.
     request = bigquery_migration_v2.CreateMigrationWorkflowRequest(

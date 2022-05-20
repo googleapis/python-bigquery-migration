@@ -13,13 +13,18 @@
 # limitations under the License.
 
 
+from typing import Iterable, List, Optional
+
 from google.api_core.exceptions import (
     InternalServerError,
     ServiceUnavailable,
     TooManyRequests,
 )
+
 from google.cloud import storage
+
 import pytest
+
 from test_utils.retry import RetryErrors
 from test_utils.system import unique_resource_id
 
@@ -33,7 +38,7 @@ storage_client = storage.Client()
 PROJECT_ID = storage_client.project
 
 
-def _create_bucket(bucket_name, location=None):
+def _create_bucket(bucket_name: str, location: Optional[str] = None) -> storage.Bucket:
     bucket = storage_client.bucket(bucket_name)
     retry_storage_errors(storage_client.create_bucket)(bucket_name, location=location)
 
@@ -41,7 +46,7 @@ def _create_bucket(bucket_name, location=None):
 
 
 @pytest.fixture
-def buckets_to_delete():
+def buckets_to_delete() -> Iterable[List]:
     doomed = []
     yield doomed
     for item in doomed:
@@ -49,7 +54,9 @@ def buckets_to_delete():
             retry_storage_errors(item.delete)(force=True)
 
 
-def test_create_migration_workflow(capsys, buckets_to_delete):
+def test_create_migration_workflow(
+    capsys: pytest.CaptureFixture, buckets_to_delete: List[storage.Bucket]
+) -> None:
     bucket_name = "bq_migration_create_workflow_test" + unique_resource_id()
     path = f"gs://{PROJECT_ID}/{bucket_name}"
     bucket = _create_bucket(bucket_name)
