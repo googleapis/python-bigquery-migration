@@ -3076,7 +3076,6 @@ def test_migration_service_transport_auth_adc(transport_class):
     [
         transports.MigrationServiceGrpcTransport,
         transports.MigrationServiceGrpcAsyncIOTransport,
-        transports.MigrationServiceRestTransport,
     ],
 )
 def test_migration_service_transport_auth_gdch_credentials(transport_class):
