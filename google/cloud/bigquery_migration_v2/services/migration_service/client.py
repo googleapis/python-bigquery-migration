@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -66,7 +77,7 @@ class MigrationServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[MigrationServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -365,7 +376,7 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, MigrationServiceTransport, None] = None,
+        transport: Optional[Union[str, MigrationServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -463,12 +474,14 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def create_migration_workflow(
         self,
-        request: Union[migration_service.CreateMigrationWorkflowRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.CreateMigrationWorkflowRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        migration_workflow: migration_entities.MigrationWorkflow = None,
+        parent: Optional[str] = None,
+        migration_workflow: Optional[migration_entities.MigrationWorkflow] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> migration_entities.MigrationWorkflow:
         r"""Creates a migration workflow.
@@ -579,11 +592,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def get_migration_workflow(
         self,
-        request: Union[migration_service.GetMigrationWorkflowRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.GetMigrationWorkflowRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> migration_entities.MigrationWorkflow:
         r"""Gets a previously created migration workflow.
@@ -683,11 +698,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def list_migration_workflows(
         self,
-        request: Union[migration_service.ListMigrationWorkflowsRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.ListMigrationWorkflowsRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListMigrationWorkflowsPager:
         r"""Lists previously created migration workflow.
@@ -798,11 +815,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def delete_migration_workflow(
         self,
-        request: Union[migration_service.DeleteMigrationWorkflowRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.DeleteMigrationWorkflowRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a migration workflow by name.
@@ -891,11 +910,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def start_migration_workflow(
         self,
-        request: Union[migration_service.StartMigrationWorkflowRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.StartMigrationWorkflowRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Starts a previously created migration workflow. I.e.,
@@ -986,11 +1007,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def get_migration_subtask(
         self,
-        request: Union[migration_service.GetMigrationSubtaskRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.GetMigrationSubtaskRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> migration_entities.MigrationSubtask:
         r"""Gets a previously created migration subtask.
@@ -1093,11 +1116,13 @@ class MigrationServiceClient(metaclass=MigrationServiceClientMeta):
 
     def list_migration_subtasks(
         self,
-        request: Union[migration_service.ListMigrationSubtasksRequest, dict] = None,
+        request: Optional[
+            Union[migration_service.ListMigrationSubtasksRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListMigrationSubtasksPager:
         r"""Lists previously created migration subtasks.
