@@ -66,7 +66,7 @@ def create_migration_workflow(
     print("Created workflow:")
     print(response.display_name)
     print("Current state:")
-    print(response.State(response.state))
+    print(response.State(response.state).name)
 
 
 # [END bigquery_migration_create_workflow]
